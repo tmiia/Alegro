@@ -1,0 +1,42 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  min-height: 100vh;
+  background-color: #04080F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+audio{
+  display: none;
+}
+.grid {
+display: grid;
+width: 100%;
+height: 100%;
+grid-template-rows: repeat(7, 1fr);
+grid-gap: 1.2rem;
+}
+.grid > .row {
+display: grid;
+grid-template-columns: repeat(16, 1fr);
+grid-gap: 1.2rem;
+}
+.cell{
+background-color: rgba(39, 39, 45, 0.301);
+border-radius: 0.5rem;
+min-width: 50px;
+min-height: 50px;
+}
+
+$colors: #6CEB57, #57EBAD, #57C7EB, #5778EB, #8657EB, #C557EB, #EB5795;
+
+@for $i from 1 through 7 {
+  $color: nth($colors, $i);
+  .grid > .row:nth-child(#{$i}) .cell.active {
+    background-color: $color;
+  }
+}
